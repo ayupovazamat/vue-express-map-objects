@@ -30,7 +30,7 @@ server.use(function (req, res, next) {
   next();
 });
 
-// services
+// routers
 const routes = require('./routes')
 server.use(express.json());
 server.use('/api', routes)
