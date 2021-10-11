@@ -20,7 +20,7 @@ const renderer = createBundleRenderer(serverBundle, {
 });
 
 server.use('/dist', express.static(path.join(__dirname, '../dist')));
-server.use('/', express.static(path.join(__dirname, './node_assets')));
+server.use('/', express.static(path.join(__dirname, './assets')));
 
 // enable CORS
 server.use(function (req, res, next) {

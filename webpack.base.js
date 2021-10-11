@@ -23,14 +23,12 @@ let config = {
         }
       },
       {
-        //test: /\.js$/,
         test: /\.m?js$/,
         loader: 'babel-loader',
         exclude: file => /node_modules/.test(file) && !/\.vue\.js/.test(file),
       },
       {
         test: /\.styl(us)?$/,
-        //loader: "stylus-loader",
         use: [
           'vue-style-loader',
           'css-loader',
@@ -42,7 +40,6 @@ let config = {
             options: {
               //webpackImporter: false,
               sourceMap: 'development',
-              //use: [require('nib')(), require('rupture')()],
               use: [require('nib')(), require('rupture')()],
               import: [
                 '~rupture/rupture/index.styl',

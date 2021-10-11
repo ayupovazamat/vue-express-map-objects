@@ -11,7 +11,7 @@ export default {
   namespaced: true,
   state: {
     objects: [],
-    selectedObject: ''
+    selectedObject: '',
   },
   mutations: {
     [MAIN__SET_DATA](state, {data}) {
@@ -25,15 +25,15 @@ export default {
     // получение списка объектов
     async [MAIN__GET_DATA]({commit}) {
       return new Promise((resolve, reject) => {
-        axios({url: '/api/objects', method: 'POST'/*, headers: {"Authorization": "Bearer token"}*/ })
-           .then(objects => {
-             commit(MAIN__SET_DATA, objects)
-             resolve(objects)
-           })
-           .catch(err => {
-             console.log(err)
-             reject(err)
-           })
+        axios({url: '/api/objects', method: 'POST'})
+          .then(objects => {
+            commit(MAIN__SET_DATA, objects)
+            resolve(objects)
+          })
+          .catch(err => {
+            console.log(err)
+            reject(err)
+          })
       })
     },
     // выбор конкретного объекта
@@ -43,4 +43,19 @@ export default {
       }, 0);
     }
   },
+  getters: {
+    getFilteredObjects: state => str => {
+      if (state.objects) {
+        if (str !== '') {
+          return state.objects.filter((object) => {
+            return object.name.toLowerCase().includes(str.toLowerCase())
+            return object.name.toLowerCase().includes(str.toLowerCase())
+          })
+        } else{
+          return state.objects
+        }
+
+      }
+    }
+  }
 };
