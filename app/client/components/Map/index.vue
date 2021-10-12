@@ -61,7 +61,7 @@
         await this.initializationMap();
 
         // инициализируем иконки
-        this.icons['activeMarker'] = L.icon({iconUrl: "/images/icons/marker-active.svg"});
+        this.icons.activeMarker = L.icon({iconUrl: "/images/icons/marker-active.svg"});
         this.icons.defaultMarker = L.icon({iconUrl: "/images/icons/marker-default.svg"});
 
         // добавляем маркеры на карту
