@@ -4,9 +4,11 @@
     <label for="search" class="objects__search">
       <input id="search" v-model="searchInput" placeholder="Поиск..." name="search" autocomplete="off"/>
     </label>
-    <div class="objects__list">
-      <div class="objects__item" v-for="object in filteredObjects" :key="object.id"
-      @click="selectObject(object.id)" :class="(selectedObject === object.id) ? 'selected': ''">{{object.id}}: {{object.name}}</div>
+    <div class="objects__wrap">
+      <div class="objects__list">
+        <div class="objects__item" v-for="object in filteredObjects" :key="object.id"
+             @click="selectObject(object.id)" :class="(selectedObject === object.id) ? 'selected': ''">{{object.id}}: {{object.name}}</div>
+      </div>
     </div>
   </div>
 </template>
@@ -64,6 +66,9 @@
         background #dcdcdc
         padding .5rem 1rem
         border none
+    &__list
+      overflow auto
+      height calc(100vh - 2rem - 127px)
     &__item
       cursor pointer
       padding .5rem 1rem
